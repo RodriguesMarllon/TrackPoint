@@ -24,8 +24,14 @@ if (builder.Environment.IsDevelopment())
     });
 }
 
-builder.Services.AddDbContext<TrackPointContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TrackPointConnetion"), op => op.CommandTimeout(600)));
+
+// Configuração do DbContext com a string de conexão
+builder.Services.AddDbContext<TrackPointContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("TrackPointConnection"),
+        sqlOptions => sqlOptions.CommandTimeout(600) // Timeout ajustado
+    ));
+
 
 builder.Services.AddControllers(options =>
 {

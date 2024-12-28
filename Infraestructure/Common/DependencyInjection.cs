@@ -1,5 +1,7 @@
 ﻿using Domain.Interfaces.AppSettings;
 using Domain.Interfaces.Requests;
+using Domain.InterfacesRepositories.Projects;
+using Infrastructure.Repositories.Projects;
 using Infrastructure.Services.AppSettings;
 using Infrastructure.Services.Requests;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,10 +13,11 @@ namespace Infrastructure.Common;
 public static class DependencyInjection
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
-    {   
+    {
         //services.AddSingleton<IUtilFunctionsSingleton, UtilFunctionsSingleton>();
 
         //services.AddScoped<IAssumptionOperaRepository, AssumptionOperaRepository>();
+        services.AddScoped<IProjectRepository, ProjectRepository>();
 
         //services.AddTransient<ISAPBOMTPOriginalService, SAPBOMTPOriginalService>();
         services.AddTransient<IApiSettingsService, ApiSettingsService>();
