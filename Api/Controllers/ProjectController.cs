@@ -55,13 +55,5 @@ namespace Api.Controllers
                 return BadRequest("Mapping error");
             }
         }
-
-
-        //[HttpPost("create")]
-        //public async Task<IActionResult> Create([FromBody] CreateProjectBodyModel body)
-        //{
-        //    var queryMediator = _mapper.Map<CreateProjectBodyRequest>(body);
-        //    return Ok(await _mediator.Send(queryMediator));
-        //}
     }
 }

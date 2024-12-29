@@ -1,6 +1,8 @@
 ﻿using Domain.Interfaces.AppSettings;
 using Domain.Interfaces.Requests;
+using Domain.InterfacesRepositories.Clients;
 using Domain.InterfacesRepositories.Projects;
+using Infrastructure.Repositories.Clients;
 using Infrastructure.Repositories.Projects;
 using Infrastructure.Services.AppSettings;
 using Infrastructure.Services.Requests;
@@ -16,8 +18,8 @@ public static class DependencyInjection
     {
         //services.AddSingleton<IUtilFunctionsSingleton, UtilFunctionsSingleton>();
 
-        //services.AddScoped<IAssumptionOperaRepository, AssumptionOperaRepository>();
         services.AddScoped<IProjectRepository, ProjectRepository>();
+        services.AddScoped<IClientRepository, ClientRepository>();
 
         //services.AddTransient<ISAPBOMTPOriginalService, SAPBOMTPOriginalService>();
         services.AddTransient<IApiSettingsService, ApiSettingsService>();
