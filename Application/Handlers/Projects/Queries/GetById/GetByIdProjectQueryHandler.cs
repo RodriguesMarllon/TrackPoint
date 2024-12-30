@@ -1,5 +1,5 @@
 ﻿using Application.Models.Abstracts;
-using Application.Models.Response;
+using Application.Models.Response.Clients;
 using AutoMapper;
 using Domain.Entities.Projects;
 using Domain.InterfacesRepositories.Projects;

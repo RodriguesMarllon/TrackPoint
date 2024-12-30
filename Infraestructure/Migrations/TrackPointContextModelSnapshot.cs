@@ -34,6 +34,18 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("VARCHAR");
 
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("VARBINARY(MAX)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -41,7 +53,78 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<double?>("Budget")
+                        .HasColumnType("FLOAT");
+
+                    b.Property<long?>("ClientId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("ClientId1")
+                        .HasColumnType("bigint");
+
+                    b.Property<decimal?>("ConsumedHours")
+                        .HasColumnType("DECIMAL(10,2)");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("DATE");
+
+                    b.Property<int?>("EstimatedDevelopmentHours")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int?>("ResponsiblePerson")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("DATE");
+
+                    b.Property<byte?>("Status")
+                        .HasColumnType("tinyint");
+
+                    b.Property<decimal>("TotalHours")
+                        .HasColumnType("DECIMAL(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("ClientId1");
+
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
+                {
+                    b.HasOne("Domain.Entities.Clients.Client", null)
+                        .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("Domain.Entities.Clients.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId1");
+
+                    b.Navigation("Client");
                 });
 #pragma warning restore 612, 618
         }

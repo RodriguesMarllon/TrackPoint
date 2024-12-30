@@ -1,9 +1,15 @@
-﻿using Api.Models.Project.Queries;
+﻿using Api.Models.Client.RequestBody;
+using Api.Models.Project.Queries;
 using Api.Models.Project.RequestBody;
+using Application.Handlers.Clients.RequestBody.Create;
+using Application.Handlers.Projects.Queries.Delete;
 using Application.Handlers.Projects.Queries.GetById;
 using Application.Handlers.Projects.RequestBody.Create;
+using Application.Handlers.Projects.RequestBody.Update;
 using Application.Models.Response;
+using Application.Models.Response.Clients;
 using AutoMapper;
+using Domain.Entities.Clients;
 using Domain.Entities.Projects;
 
 namespace Api.AutoMapper
@@ -12,11 +18,18 @@ namespace Api.AutoMapper
     {
         public TrackPointProfile() 
         {
+            CreateMap<DeleteProjectQueryModel, DeleteProjectQueryRequest>();
             CreateMap<Project, GetAllProjectResponseItem>();
             CreateMap<GetByIdProjectQueryModel, GetByIdProjectQueryRequest>();
             CreateMap<Project, GetByIdProjectResponseItem>();
             CreateMap<CreateProjectBodyRequest, Project>();
+            CreateMap<UpdateProjectBodyRequest, Project>();
             CreateMap<CreateProjectBodyModel, CreateProjectBodyRequest>();
+            CreateMap<UpdateProjectBodyModel, UpdateProjectBodyRequest>();
+
+            CreateMap<Client, GetAllClientResponseItem>();
+            CreateMap<CreateClientBodyRequest, Client>();
+            CreateMap<CreateClientBodyModel, CreateClientBodyRequest>();
         }
     }
 }

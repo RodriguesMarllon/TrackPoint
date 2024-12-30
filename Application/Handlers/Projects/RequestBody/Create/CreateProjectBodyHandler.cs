@@ -1,5 +1,5 @@
 ﻿using Application.Models.Abstracts;
-using Application.Models.Response;
+using Application.Models.Response.Projects;
 using AutoMapper;
 using Domain.Entities.Projects;
 using Domain.InterfacesRepositories.Projects;
@@ -30,6 +30,7 @@ namespace Application.Handlers.Projects.RequestBody.Create
 
             try
             {
+                request.LastUpdated = DateTime.Now;
                 await _projectRepository.Add(_mapper.Map<Project>(request));
             }
             catch (Exception ex)

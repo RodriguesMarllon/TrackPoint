@@ -28,8 +28,4 @@
     <ProjectReference Include="..\Infraestructure\Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Handlers\Projects\RequestBody\Update\" />
-  </ItemGroup>
-
 </Project>

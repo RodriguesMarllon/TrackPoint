@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Api.Controllers.ClientController",
+    "Method": "Create",
+    "RelativePath": "Client/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "Api.Models.Client.RequestBody.CreateClientBodyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ClientController",
+    "Method": "GetAll",
+    "RelativePath": "Client/get-all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api.Controllers.ProjectController",
     "Method": "Create",
     "RelativePath": "Project/create",
@@ -11,6 +37,22 @@
         "Name": "body",
         "Type": "Api.Models.Project.RequestBody.CreateProjectBodyModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ProjectController",
+    "Method": "Delete",
+    "RelativePath": "Project/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int64",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -37,6 +79,22 @@
         "Name": "Id",
         "Type": "System.Int64",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ProjectController",
+    "Method": "Update",
+    "RelativePath": "Project/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "Api.Models.Project.RequestBody.UpdateProjectBodyModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
