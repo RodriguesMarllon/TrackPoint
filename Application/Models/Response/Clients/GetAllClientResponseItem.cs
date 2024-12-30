@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace Application.Models.Response.Clients
+﻿namespace Application.Models.Response.Clients
 {
     public class GetAllClientResponseItem
     {
@@ -11,5 +8,6 @@ namespace Application.Models.Response.Clients
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string? Address { get; set; }
+        public byte[] Logo { get; set; }
     }
 }

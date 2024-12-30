@@ -1,6 +1,11 @@
-﻿using Api.Models.Client.RequestBody;
+﻿using Api.Models.Client.Queries;
+using Api.Models.Client.RequestBody;
+using Application.Handlers.Clients.Queries.Delete;
+using Application.Handlers.Clients.Queries.GetAll;
 using Application.Handlers.Clients.RequestBody.Create;
-using Application.Handlers.Clients.RequestBody.GetAll;
+using Application.Handlers.Clients.RequestBody.Update;
+using Application.Handlers.Projects.Queries.Delete;
+using Application.Handlers.Projects.RequestBody.Update;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +50,20 @@ namespace Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             GetAllClientQueryRequest queryMediator = new();
+            return Ok(await _mediator.Send(queryMediator));
+        }
+
+        [HttpPut("update")]
+        public async Task<IActionResult> Update([FromBody] UpdateClientBodyModel body)
+        {
+            var queryMediator = _mapper.Map<UpdateClientBodyRequest>(body);
+            return Ok(await _mediator.Send(queryMediator));
+        }
+
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete([FromQuery] DeleteClientQueryModel query)
+        {
+            var queryMediator = _mapper.Map<DeleteClientQueryRequest>(query);
             return Ok(await _mediator.Send(queryMediator));
         }
     }

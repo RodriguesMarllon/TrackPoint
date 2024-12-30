@@ -1,4 +1,4 @@
-﻿namespace Application.Models.Response.Clients
+﻿namespace Application.Models.Response.Projects
 {
     public class GetByIdProjectResponseItem
     {

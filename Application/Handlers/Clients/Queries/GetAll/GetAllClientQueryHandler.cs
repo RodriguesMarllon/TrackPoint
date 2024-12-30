@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
 
-namespace Application.Handlers.Clients.RequestBody.GetAll
+namespace Application.Handlers.Clients.Queries.GetAll
 {
     public class GetAllClientQueryHandler : IRequestHandler<GetAllClientQueryRequest, ResponseBase<List<GetAllClientResponseItem>>>
     {

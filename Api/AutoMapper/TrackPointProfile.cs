@@ -1,13 +1,17 @@
-﻿using Api.Models.Client.RequestBody;
+﻿using Api.Models.Client.Queries;
+using Api.Models.Client.RequestBody;
 using Api.Models.Project.Queries;
 using Api.Models.Project.RequestBody;
+using Application.Handlers.Clients.Queries.Delete;
 using Application.Handlers.Clients.RequestBody.Create;
+using Application.Handlers.Clients.RequestBody.Update;
 using Application.Handlers.Projects.Queries.Delete;
 using Application.Handlers.Projects.Queries.GetById;
 using Application.Handlers.Projects.RequestBody.Create;
 using Application.Handlers.Projects.RequestBody.Update;
 using Application.Models.Response;
 using Application.Models.Response.Clients;
+using Application.Models.Response.Projects;
 using AutoMapper;
 using Domain.Entities.Clients;
 using Domain.Entities.Projects;
@@ -29,6 +33,10 @@ namespace Api.AutoMapper
 
             CreateMap<CreateClientBodyRequest, Client>();
             CreateMap<CreateClientBodyModel, CreateClientBodyRequest>();
+            CreateMap<Client, GetAllClientResponseItem>();
+            CreateMap<UpdateClientBodyRequest, Client>();   
+            CreateMap<UpdateClientBodyModel, UpdateClientBodyRequest>();
+            CreateMap<DeleteClientQueryModel, DeleteClientQueryRequest>();
         }
     }
 }

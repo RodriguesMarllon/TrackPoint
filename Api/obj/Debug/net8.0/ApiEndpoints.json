@@ -17,12 +17,44 @@
   },
   {
     "ContainingType": "Api.Controllers.ClientController",
+    "Method": "Delete",
+    "RelativePath": "Client/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int64",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ClientController",
     "Method": "GetAll",
     "RelativePath": "Client/get-all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Api.Controllers.ClientController",
+    "Method": "Update",
+    "RelativePath": "Client/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "Api.Models.Client.RequestBody.UpdateClientBodyModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
