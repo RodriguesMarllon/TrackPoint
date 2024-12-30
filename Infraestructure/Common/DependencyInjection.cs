@@ -18,7 +18,6 @@ public static class DependencyInjection
     {
         //services.AddSingleton<IUtilFunctionsSingleton, UtilFunctionsSingleton>();
 
-        //services.AddScoped<IAssumptionOperaRepository, AssumptionOperaRepository>();
         services.AddScoped<IProjectRepository, ProjectRepository>();
         services.AddScoped<IClientRepository, ClientRepository>();
 
