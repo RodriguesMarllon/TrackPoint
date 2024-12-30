@@ -2,6 +2,7 @@
 using Api.Models.Project.Queries;
 using Api.Models.Project.RequestBody;
 using Application.Handlers.Clients.RequestBody.Create;
+using Application.Handlers.Projects.Queries.Delete;
 using Application.Handlers.Projects.Queries.GetById;
 using Application.Handlers.Projects.RequestBody.Create;
 using Application.Handlers.Projects.RequestBody.Update;
@@ -24,6 +25,7 @@ namespace Api.AutoMapper
             CreateMap<CreateProjectBodyRequest, Project>();
             CreateMap<UpdateProjectBodyRequest, Project>();
             CreateMap<CreateProjectBodyModel, CreateProjectBodyRequest>();
+            CreateMap<UpdateProjectBodyModel, UpdateProjectBodyRequest>();
 
             CreateMap<CreateClientBodyRequest, Client>();
             CreateMap<CreateClientBodyModel, CreateClientBodyRequest>();
