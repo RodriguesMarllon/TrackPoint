@@ -1,13 +1,13 @@
+D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.deps.json
+D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
+D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.dll
+D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.pdb
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.sourcelink.json
-D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.deps.json
-D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.runtimeconfig.json
-D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.dll
-D:\03 - Projects\TrackPoint\Domain\bin\Debug\net8.0\Domain.pdb
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.dll
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\refint\Domain.dll
 D:\03 - Projects\TrackPoint\Domain\obj\Debug\net8.0\Domain.pdb

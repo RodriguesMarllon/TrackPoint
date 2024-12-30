@@ -1,15 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities.Clients;
+using Domain.Entities.Projects;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Infraestructure.Configuration
 {
     public class TrackPointContext : DbContext
     {
-        public TrackPointContext(DbContextOptions<TrackPointContext> options)
+        public TrackPointContext(DbContextOptions<TrackPointContext> options) : base(options)
         {
-            this.Database.Migrate();
         }
-
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
