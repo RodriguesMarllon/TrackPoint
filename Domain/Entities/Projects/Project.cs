@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Entities.Clients;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entities.Projects
 {
@@ -12,13 +9,29 @@ namespace Domain.Entities.Projects
     {
         [Key]
         public long Id { get; set; }
+
         [Required]
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(100)]
+        [StringLength(255)]
         public string Name { get; set; }
+
         [Required]
-        [Column(TypeName = "VARCHAR")]
-        [StringLength(300)]
-        public string Description { get; set; }
+        [ForeignKey("Client")]
+        public long ClientId { get; set; }
+
+        [Required]
+        [Column(TypeName = "DECIMAL(10,2)")]
+        public decimal TotalHours { get; set; }
+
+        [DefaultValue(0)]
+        [Column(TypeName = "DECIMAL(10,2)")]
+        public decimal? ConsumedHours { get; set; } = 0;
+
+        public string? Description { get; set; }
+
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+
+        // Navigation property for Client
+        public virtual Client? Client { get; set; }
     }
 }

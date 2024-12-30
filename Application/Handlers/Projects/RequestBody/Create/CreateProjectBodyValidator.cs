@@ -6,7 +6,6 @@ namespace Application.Handlers.Projects.RequestBody.Create
     {
         public CreateProjectBodyValidator() 
         {
-
         }
     }
 }
