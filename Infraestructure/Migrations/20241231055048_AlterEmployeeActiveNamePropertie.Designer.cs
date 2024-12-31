@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TrackPointContext))]
-    [Migration("20241230020142_AddingSomeFieldsToProject")]
-    partial class AddingSomeFieldsToProject
+    [Migration("20241231055048_AlterEmployeeActiveNamePropertie")]
+    partial class AlterEmployeeActiveNamePropertie
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,57 @@ namespace Infrastructure.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Employees.Employee", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("DateInsertUpdate")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.Property<string>("Signature")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("VARCHAR");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
             modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
                 {
                     b.Property<long>("Id")
@@ -75,9 +126,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("FLOAT");
 
                     b.Property<long?>("ClientId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("ClientId1")
                         .HasColumnType("bigint");
 
                     b.Property<decimal?>("ConsumedHours")
@@ -97,8 +145,8 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR");
 
                     b.Property<int?>("ResponsiblePerson")
                         .HasColumnType("int");
@@ -116,20 +164,14 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.HasIndex("ClientId1");
-
                     b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
                 {
-                    b.HasOne("Domain.Entities.Clients.Client", null)
-                        .WithMany()
-                        .HasForeignKey("ClientId");
-
                     b.HasOne("Domain.Entities.Clients.Client", "Client")
                         .WithMany()
-                        .HasForeignKey("ClientId1");
+                        .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
                 });
