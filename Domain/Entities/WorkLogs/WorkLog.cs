@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Activitys;
+﻿using Domain.Entities.Activities;
 using Domain.Entities.Employees;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -61,7 +61,7 @@ namespace Domain.Entities.WorkLogs
         public DateTime InsertUpdateDate { get; set; } = DateTime.UtcNow;
 
         // Navigation properties
-        public virtual Activity? Activity { get; set; }
+        public virtual Activities.Activity? Activity { get; set; }
         public virtual Employee? Employee { get; set; }
     }
 }

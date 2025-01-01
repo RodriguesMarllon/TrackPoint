@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Clients;
+﻿using Domain.Entities.Activities;
+using Domain.Entities.Clients;
 using Domain.Entities.Employees;
 using Domain.Entities.Projects;
 using Domain.Entities.WorkLogs;
@@ -15,6 +16,7 @@ namespace Infraestructure.Configuration
         public DbSet<Client> Clients { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<WorkLog> WorkLogs { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

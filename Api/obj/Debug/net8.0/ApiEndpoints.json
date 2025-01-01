@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Api.Controllers.ActivityController",
+    "Method": "Create",
+    "RelativePath": "Activity/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "body",
+        "Type": "Api.Models.Activity.RequestBody.CreateActivityBodyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api.Controllers.ClientController",
     "Method": "Create",
     "RelativePath": "Client/create",

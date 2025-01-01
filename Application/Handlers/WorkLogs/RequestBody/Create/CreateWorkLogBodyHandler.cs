@@ -1,15 +1,12 @@
 ﻿using Application.Models.Abstracts;
 using Application.Models.Response.WorkLog;
 using AutoMapper;
-using DocumentFormat.OpenXml.Presentation;
 using Domain.Entities.WorkLogs;
 using Domain.InterfacesRepositories.WorkLogs;
 using Infrastructure.CrossCutting.Utils;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client;
-using System.ComponentModel.Design.Serialization;
 using System.Net;
 
 namespace Application.Handlers.WorkLogs.RequestBody.Create

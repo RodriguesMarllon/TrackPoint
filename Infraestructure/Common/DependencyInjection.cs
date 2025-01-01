@@ -1,9 +1,11 @@
 ﻿using Domain.Interfaces.AppSettings;
 using Domain.Interfaces.Requests;
+using Domain.InterfacesRepositories.Activities;
 using Domain.InterfacesRepositories.Clients;
 using Domain.InterfacesRepositories.Employees;
 using Domain.InterfacesRepositories.Projects;
 using Domain.InterfacesRepositories.WorkLogs;
+using Infrastructure.Repositories.Activities;
 using Infrastructure.Repositories.Clients;
 using Infrastructure.Repositories.Employees;
 using Infrastructure.Repositories.Projects;
@@ -26,6 +28,7 @@ public static class DependencyInjection
         services.AddScoped<IProjectRepository, ProjectRepository>();
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         services.AddScoped<IWorkLogRepository, WorkLogRepository>();
+        services.AddScoped<IActivityRepository, ActivityRepository>();
 
         //services.AddTransient<ISAPBOMTPOriginalService, SAPBOMTPOriginalService>();
         services.AddTransient<IApiSettingsService, ApiSettingsService>();

@@ -22,11 +22,12 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Entities.Activitys.Activity", b =>
+            modelBuilder.Entity("Domain.Entities.Activities.Activity", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
@@ -43,9 +44,22 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<long>("ProjectI")
+                        .HasColumnType("bigint")
+                        .HasColumnName("ProjectId");
+
+                    b.Property<long?>("ProjectId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Activity");
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Activities", t =>
+                        {
+                            t.Property("ProjectId")
+                                .HasColumnName("ProjectId1");
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Clients.Client", b =>
@@ -262,6 +276,15 @@ namespace Infrastructure.Migrations
                     b.ToTable("WorkLogs");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Activities.Activity", b =>
+                {
+                    b.HasOne("Domain.Entities.Projects.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
+
+                    b.Navigation("Project");
+                });
+
             modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
                 {
                     b.HasOne("Domain.Entities.Clients.Client", "Client")
@@ -273,7 +296,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.WorkLogs.WorkLog", b =>
                 {
-                    b.HasOne("Domain.Entities.Activitys.Activity", "Activity")
+                    b.HasOne("Domain.Entities.Activities.Activity", "Activity")
                         .WithMany()
                         .HasForeignKey("ActivityId")
                         .OnDelete(DeleteBehavior.Cascade)

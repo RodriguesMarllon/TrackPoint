@@ -1,4 +1,5 @@
-﻿using Api.Models.Client.Queries;
+﻿using Api.Models.Activity.RequestBody;
+using Api.Models.Client.Queries;
 using Api.Models.Client.RequestBody;
 using Api.Models.Employee.Querie;
 using Api.Models.Employee.RequestBody;
@@ -6,6 +7,7 @@ using Api.Models.Project.Queries;
 using Api.Models.Project.RequestBody;
 using Api.Models.WorkLog.Queries.Delete;
 using Api.Models.WorkLog.RequestBody;
+using Application.Handlers.Activities.RequestBody.Create;
 using Application.Handlers.Clients.Queries.Delete;
 using Application.Handlers.Clients.RequestBody.Create;
 using Application.Handlers.Clients.RequestBody.Update;
@@ -25,6 +27,7 @@ using Application.Models.Response.Employee;
 using Application.Models.Response.Projects;
 using Application.Models.Response.WorkLog;
 using AutoMapper;
+using Domain.Entities.Activities;
 using Domain.Entities.Clients;
 using Domain.Entities.Employees;
 using Domain.Entities.Projects;
@@ -65,6 +68,9 @@ namespace Api.AutoMapper
             CreateMap<UpdateWorkLogBodyRequest, WorkLog>();
             CreateMap<UpdateWorkLogBodyModel, UpdateWorkLogBodyRequest>();
             CreateMap<DeleteWorkLogQueryModel, DeleteWorkLogQueryRequest>();
+
+            CreateMap<CreateActivityBodyRequest, Activity>();
+            CreateMap<CreateActivityBodyModel, CreateActivityBodyRequest>();
         }
     }
 }
