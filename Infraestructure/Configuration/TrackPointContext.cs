@@ -1,8 +1,8 @@
 ﻿using Domain.Entities.Clients;
 using Domain.Entities.Employees;
 using Domain.Entities.Projects;
+using Domain.Entities.WorkLogs;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Infraestructure.Configuration
 {
@@ -14,6 +14,7 @@ namespace Infraestructure.Configuration
         public DbSet<Project> Projects { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<WorkLog> WorkLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -22,6 +22,32 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Entities.Activitys.Activity", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("External")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Activity");
+                });
+
             modelBuilder.Entity("Domain.Entities.Clients.Client", b =>
                 {
                     b.Property<long>("Id")
@@ -164,6 +190,78 @@ namespace Infrastructure.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("Domain.Entities.WorkLogs.WorkLog", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("ActivityId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("ActivityId");
+
+                    b.Property<string>("Break")
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)")
+                        .HasColumnName("Break");
+
+                    b.Property<byte>("DayType")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("DayType");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("Description");
+
+                    b.Property<long>("EmployeeId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EmployeeId");
+
+                    b.Property<DateTime>("EntryDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("EntryDateTime");
+
+                    b.Property<DateTime?>("ExitDateTime")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ExitDateTime");
+
+                    b.Property<string>("Expenses")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Expenses");
+
+                    b.Property<DateTime>("InsertUpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("InsertUpdateDate");
+
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("Status");
+
+                    b.Property<string>("Transport")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Transport");
+
+                    b.Property<string>("ValidationResponsible")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("ValidationResponsible");
+
+                    b.Property<float>("WorkHours")
+                        .HasColumnType("real")
+                        .HasColumnName("WorkHours");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("WorkLogs");
+                });
+
             modelBuilder.Entity("Domain.Entities.Projects.Project", b =>
                 {
                     b.HasOne("Domain.Entities.Clients.Client", "Client")
@@ -171,6 +269,25 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("ClientId");
 
                     b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("Domain.Entities.WorkLogs.WorkLog", b =>
+                {
+                    b.HasOne("Domain.Entities.Activitys.Activity", "Activity")
+                        .WithMany()
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Employees.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Activity");
+
+                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

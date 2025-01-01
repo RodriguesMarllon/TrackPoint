@@ -1,5 +1,4 @@
 ﻿using Domain.Entities.Employees;
-using Domain.Entities.Employees;
 using Domain.InterfacesRepositories.Employees;
 using Infraestructure.Configuration;
 using Infrastructure.Repositories.Abstract;
